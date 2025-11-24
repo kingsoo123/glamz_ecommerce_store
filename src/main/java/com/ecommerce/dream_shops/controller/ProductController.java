@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecommerce.dream_shops.dto.ProductDto;
 import com.ecommerce.dream_shops.exceptions.ResourceNotFoundExcception;
 import com.ecommerce.dream_shops.model.Product;
 import com.ecommerce.dream_shops.request.AddProductRequest;
@@ -34,7 +35,8 @@ public class ProductController {
     public ResponseEntity<ApiResponse> getAllProducts(){
         try {
             List<Product> product = productService.getAllProducts();
-            return ResponseEntity.ok(new ApiResponse("Success", product));
+            List<ProductDto> convertedProducts = productService.getConvertedProducts(product);
+            return ResponseEntity.ok(new ApiResponse("Success", convertedProducts));
             
         } catch (ResourceNotFoundExcception e) {
            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -47,7 +49,8 @@ public class ProductController {
     public ResponseEntity<ApiResponse> getAllProductsById(@PathVariable Long productId){
         try {
             Product product = productService.getProductById(productId);
-            return ResponseEntity.ok(new ApiResponse("Products found", product));
+            var productDto = productService.convertToDto(product);
+            return ResponseEntity.ok(new ApiResponse("Products found", productDto));
             
         } catch (ResourceNotFoundExcception e) {
            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
