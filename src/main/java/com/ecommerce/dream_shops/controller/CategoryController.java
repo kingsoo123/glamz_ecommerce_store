@@ -48,10 +48,10 @@ public class CategoryController {
         }
     }
 
-    @GetMapping("/category/{id}/category")
-    public ResponseEntity<ApiResponse> getCategoryById(@PathVariable Long id){
+    @GetMapping("/category/id/{categoryId}")
+    public ResponseEntity<ApiResponse> getCategoryById(@PathVariable Long categoryId){
         try {
-              Category category = categoryService.getCategoryById(id);
+              Category category = categoryService.getCategoryById(categoryId);
               return ResponseEntity.ok(new ApiResponse("Found", category));
         } catch (ResourceNotFoundExcception e) {
              return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

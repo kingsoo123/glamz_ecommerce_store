@@ -1,4 +1,4 @@
-GET  http://localhost:8080/api/v1/carts/2/cart/total-price
+GET http://localhost:8080/api/v1/categories/category/id/3
 
 
 
