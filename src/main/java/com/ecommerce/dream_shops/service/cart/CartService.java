@@ -23,7 +23,7 @@ public class CartService implements ICartService{
 
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
-    private final AtomicLong cartIdGenerator =new AtomicLong(0);
+    private  AtomicLong cartIdGenerator =new AtomicLong(0);
 
     @Override
     public Cart getCart(Long id) {
