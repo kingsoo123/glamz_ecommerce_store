@@ -1,0 +1,72 @@
+
+
+
+
+POST http://localhost:8080/api/v1/products/add
+Content-Type: application/json
+
+{
+    "name":"TV",
+    "brand":"Apple",
+    "price":"1000",
+    "inventory":"10",
+    "description":"Apple smart watch",
+    "category":{
+        "name":"Gadget"
+    }
+}
+
+
+
+//POST http://localhost:8080/api/v1/orders/order?userId=1
+
+
+
+
+//GET http://localhost:8080/api/v1/users/1/user
+
+
+
+
+
+
+
+
+
+
+
+//POST http://localhost:8080/api/v1/cartItems/item/add?productId=1&quantity=3
+
+
+
+
+
+
+
+
+
+
+
+
+
+# POST http://localhost:8080/api/v1/users/add
+# Content-Type: application/json
+
+# {
+#     "firstname":"Edward",
+#     "lastname":"Onyelo",
+#     "email":"test4@gmail.com",
+#     "password":"12345"
+
+# }
+
+
+
+//update cartitems
+//PUT http://localhost:8080/api/v1/cartItems/cart/2/item/1/update?quantity=5
+
+//get cart
+//GET http://localhost:8080/api/v1/carts/2/my-cart
+
+//http://localhost:8080/api/v1/categories/category/3/update
+ 
